@@ -18,3 +18,5 @@ benchmark/results
 
 # Do not put the generated documentation in master
 docs/
+# stryker temp files
+.stryker-tmp

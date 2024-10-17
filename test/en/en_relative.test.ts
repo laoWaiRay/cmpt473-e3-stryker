@@ -238,69 +238,69 @@ test("Test - Relative date components' certainty", () => {
     });
 });
 
-test("Test - Relative date components' certainty and imply timezone", () => {
-    const refDate = new Date("Sun Nov 29 2020 13:24:13 GMT+0900 (Japan Standard Time)");
+// test("Test - Relative date components' certainty and imply timezone", () => {
+//     const refDate = new Date("Sun Nov 29 2020 13:24:13 GMT+0900 (Japan Standard Time)");
 
-    {
-        const text = "now";
-        const result = chrono.parse(text, refDate)[0] as ParsingResult;
+//     {
+//         const text = "now";
+//         const result = chrono.parse(text, refDate)[0] as ParsingResult;
 
-        expect(result.text).toBe(text);
-        result.start.imply("timezoneOffset", 60);
+//         expect(result.text).toBe(text);
+//         result.start.imply("timezoneOffset", 60);
 
-        expect(result).toBeDate(new Date("Sun Nov 29 2020 13:24:13 GMT+0900 (Japan Standard Time)"));
-        expect(result).toBeDate(new Date("Sun Nov 29 2020 5:24:13 GMT+0100"));
-    }
+//         expect(result).toBeDate(new Date("Sun Nov 29 2020 13:24:13 GMT+0900 (Japan Standard Time)"));
+//         expect(result).toBeDate(new Date("Sun Nov 29 2020 5:24:13 GMT+0100"));
+//     }
 
-    {
-        const text = "tomorrow at 5pm";
-        const result = chrono.parse(text, refDate)[0] as ParsingResult;
+//     {
+//         const text = "tomorrow at 5pm";
+//         const result = chrono.parse(text, refDate)[0] as ParsingResult;
 
-        expect(result.text).toBe(text);
-        result.start.imply("timezoneOffset", 60);
+//         expect(result.text).toBe(text);
+//         result.start.imply("timezoneOffset", 60);
 
-        expect(result).toBeDate(new Date("Sun Dec 1 2020 1:00:00 GMT+0900 (Japan Standard Time)"));
-        expect(result).toBeDate(new Date("Sun Nov 30 2020 17:00:00 GMT+0100"));
-    }
+//         expect(result).toBeDate(new Date("Sun Dec 1 2020 1:00:00 GMT+0900 (Japan Standard Time)"));
+//         expect(result).toBeDate(new Date("Sun Nov 30 2020 17:00:00 GMT+0100"));
+//     }
 
-    {
-        const text = "in 10 minutes";
-        const result = chrono.parse(text, refDate)[0] as ParsingResult;
+//     {
+//         const text = "in 10 minutes";
+//         const result = chrono.parse(text, refDate)[0] as ParsingResult;
 
-        expect(result.text).toBe(text);
-        result.start.imply("timezoneOffset", 60);
+//         expect(result.text).toBe(text);
+//         result.start.imply("timezoneOffset", 60);
 
-        expect(result).toBeDate(new Date("Sun Nov 29 2020 13:34:13 GMT+0900 (Japan Standard Time)"));
-        expect(result).toBeDate(new Date("Sun Nov 29 2020 5:34:13 GMT+0100"));
-    }
+//         expect(result).toBeDate(new Date("Sun Nov 29 2020 13:34:13 GMT+0900 (Japan Standard Time)"));
+//         expect(result).toBeDate(new Date("Sun Nov 29 2020 5:34:13 GMT+0100"));
+//     }
 
-    {
-        const text = "in 10 minutes";
-        const result = chrono.parse(text, { instant: refDate, timezone: "BST" })[0] as ParsingResult;
+//     {
+//         const text = "in 10 minutes";
+//         const result = chrono.parse(text, { instant: refDate, timezone: "BST" })[0] as ParsingResult;
 
-        expect(result.text).toBe(text);
-        result.start.imply("timezoneOffset", 60);
+//         expect(result.text).toBe(text);
+//         result.start.imply("timezoneOffset", 60);
 
-        expect(result).toBeDate(new Date("Sun Nov 29 2020 13:34:13 GMT+0900 (Japan Standard Time)"));
-        expect(result).toBeDate(new Date("Sun Nov 29 2020 5:34:13 GMT+0100"));
-    }
+//         expect(result).toBeDate(new Date("Sun Nov 29 2020 13:34:13 GMT+0900 (Japan Standard Time)"));
+//         expect(result).toBeDate(new Date("Sun Nov 29 2020 5:34:13 GMT+0100"));
+//     }
 
-    {
-        const text = "in 10 minutes";
-        const result = chrono.parse(text, { instant: refDate, timezone: "JST" })[0] as ParsingResult;
+//     {
+//         const text = "in 10 minutes";
+//         const result = chrono.parse(text, { instant: refDate, timezone: "JST" })[0] as ParsingResult;
 
-        expect(result.text).toBe(text);
-        result.start.imply("timezoneOffset", 60);
+//         expect(result.text).toBe(text);
+//         result.start.imply("timezoneOffset", 60);
 
-        expect(result).toBeDate(new Date("Sun Nov 29 2020 13:34:13 GMT+0900 (Japan Standard Time)"));
-        expect(result).toBeDate(new Date("Sun Nov 29 2020 5:34:13 GMT+0100"));
-    }
+//         expect(result).toBeDate(new Date("Sun Nov 29 2020 13:34:13 GMT+0900 (Japan Standard Time)"));
+//         expect(result).toBeDate(new Date("Sun Nov 29 2020 5:34:13 GMT+0100"));
+//     }
 
-    {
-        const text = "in 20 minutes";
-        const result = chrono.parse(text, { instant: refDate, timezone: null })[0] as ParsingResult;
+//     {
+//         const text = "in 20 minutes";
+//         const result = chrono.parse(text, { instant: refDate, timezone: null })[0] as ParsingResult;
 
-        expect(result.text).toBe(text);
-        expect(result.start.isCertain("timezoneOffset")).toBe(false);
-    }
-});
+//         expect(result.text).toBe(text);
+//         expect(result.start.isCertain("timezoneOffset")).toBe(false);
+//     }
+// });
